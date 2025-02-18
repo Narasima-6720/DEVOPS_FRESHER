@@ -1,0 +1,22 @@
+
+
+====Initalizes the required plugins=========================
+
+terraform init
+
+
+====It shows what the terraform will be created=============
+
+terraform plan
+
+====It willl create the resources===========================
+
+terraform apply
+
+=====It will destroy the resources==========================
+
+
+Terraform Life Cycle
+===================
+
+terraform init-->terraform plan--> terraform apply--> terraform destroy 
