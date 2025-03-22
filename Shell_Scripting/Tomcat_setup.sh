@@ -1,39 +1,18 @@
-# Version: v1
-# Date: 22/3/2025
-#####################
+#!/bin/bash
 
-echo "Started the download of Tomcat.............."
-
-echo "Installing Java....."
-######################################
+#Author: Narasimha Reddy
+#Description: This script is used to setup Tomcat
+#version: v1
+##########################
 sudo yum install java -y
 
-echo "Java Installed successfully"
-######################################
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.tar.gz
 
-echo "Installing Tomcat..."
+tar -xvf apache-tomcat-9.0.102.tar.gz
 
-# Install unzip if not present
-sudo yum install unzip -y
+rm -rf apache-tomcat-9.0.102.tar.gz
 
-# Download Tomcat
-wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.zip
+sudo /opt/apache-tomcat-9.0.102/bin/startup.sh
 
-# Unzip Tomcat
-unzip apache-tomcat-9.0.102.zip
 
-echo "Tomcat Installed successfully"
-######################################
-
-echo "Starting the Tomcat server........"
-
-cd apache-tomcat-9.0.102/bin/
-
-# Make sure the startup.sh script is executable
-chmod +x startup.sh
-
-# Start Tomcat
-./startup.sh
-
-echo "Tomcat server started successfully."
 
