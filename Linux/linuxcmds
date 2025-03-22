@@ -1,0 +1,140 @@
+who(tells whologged in)
+whoami
+hostname
+hostname -I
+uname -v
+uname -a
+hostnamectl set-hostname username
+touch filename
+mkdir dirname
+mkdir -p dir1/dir2
+date
+cal
+uptime
+sudo su -
+su - username
+rm -rf filename
+rm -rf dirname
+man command
+nproc
+ls 
+ls -a
+ll
+ls -lrth
+ls -lrtha
+useradd username
+passwd passwdname
+usermod -c "data" username
+userdel -r username
+cat filename
+cat /etc/passwd
+cat /etc/group
+=================
+vi /nano
+(:w,:wq,:wq!,:/search(n for next match element),dd,dw,yy,p,$,set nu,set nonu)
+================
+wc filename
+wc -l filename
+wc -w filename
+wc -c filename
+more filename
+less filename
+head -n filename
+tail -n filename
+
+yum install pkgname
+yum remove pkgname
+history
+
+==========
+
+aws get sts get-caller-identity(retrieve user identity from the aws)
+opt/ --> we can perform operations
+cp source dest
+mv source dest
+diff file1 file2
+sdiff file1 file2(advanced file comparision)
+
+echo "str" > fname
+echo "str" >> fname
+wget <url> (download from internet)
+unzip filename
+zip -r name(foldcompress name) foldname
+
+tape archive==========
+wget <url>
+
+tar -xvf foldname(extract)
+tar -cvf foldname(source) tgfoldname(compress)
+
+top(process relate commands)--> It shows process running present
+htop(advance command)
+swapmemory(when RAM is full it creates virtual memory)
+lscpu 
+free -g
+free -m
+
+======content replacement(not changes the original file)============
+
+sed "s/nara/mohan/" filename(first occurrence)
+sed "s/nara/mohan/g" filename(all the occurrence)
+sed "s/nara/mohan/2" filename(second occurrence)
+
+=============grep(global regular expression)=========
+grep -iR "searchstring"
+grep -R "serachstr"
+
+
+=============search the files===================
+find source(/) -name fname
+
+find source -name "fname"
+find source -name "fname" -type f
+find source -name "fname" -type d
+
+
+=============disk commands===============(mounted)
+df
+df -h
+du -sh foldname(collective size)
+du  -h filename(individual size)
+
+===Permissions=============
+
+r-> read
+w--> write
+x--> execute
+
+u--> user
+g--> group
+o-->others
+
+4-> read
+2--> write
+1--> execute
+
+chmod (user or group or others) fname
+ex: chmod 777 fname
+
+chmod -R 744 dirname(recursively applying permissions inside dir)
+
+usermod -aG groupname username
+
+
+chown username fname(username)
+chown username:username fname(groupname)
+=====Proess============
+
+ps
+ps -ef(all terminals all process)
+
+apt purge pkgname(clean entire pkg)
+
+=============crontab==================
+
+crontab -e(to run crontab)
+
+
+8:10
+m  h  d y
+10 8  28 
