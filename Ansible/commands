@@ -1,0 +1,25 @@
+# Installing ansible
+apt install ansible
+
+# Creating the file  on another server
+ansible -i inventoryfile  all -m "shell" -a "touch filename"
+
+# Seeing the disk usage
+ansible -i inventory_file all -m "shell" -a "df"
+
+#Copy files from server1 to server2
+ansible -i inventory all -m "copy" "src=path dest=path" -u username(ubuntu)
+
+#Run the Ansible playbooks
+
+ansible-playbook -i inventory filename.yml
+
+#Debug mode run the command
+
+ansible-playbook -v -i inventory filename.yml
+
+# Target to specific group to configure
+
+ansible-playbook -i inventory groupname -m "shell" -a "commands"
+
+
