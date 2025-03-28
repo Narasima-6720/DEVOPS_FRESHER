@@ -1,0 +1,31 @@
+yum install docker -y
+docker ps
+docker ps -a
+docker ps -al
+docker search imagename
+docker rename oldname newname
+docker stop contname
+docker start contname
+docker run imagename
+docker info
+docker images
+docker rmi imgname/img_id
+docker rm -f contname/contid
+docker attach contname
+docker run exec -it --name contnme contid/contname
+docker commit contname/contid
+docker --version
+systemctl start docker
+systemctl status docker
+docker pull imge_name
+docker tag imgid name:tagname
+docker rm -f $(docker ps -aq)
+docker ps -aq
+docker images -q
+docker rm  $(docker images -q)
+docker pause contname
+docker unpause contname
+docker run -it cont_name /bin/bash
+docker stats contname/cont_id
+docker top contname
+
