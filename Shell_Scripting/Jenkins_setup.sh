@@ -16,5 +16,5 @@ sudo yum install java-17-amazon-corretto -y
 sudo yum install jenkins -y
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
-sudo mount -o remount,size=2G /tmp/
+sudo mount -o remount,size=4G /tmp/
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
