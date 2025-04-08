@@ -1,20 +1,16 @@
 ---
-- name : Install nginx and setup nginx
-  hosts : all
-  become: yes
+- name: This palybook setup the apache sever and serves the application
+  hosts: all
+  become: true
   tasks:
-    - name : Install nginx
-      apt :
-        name : nginx
-        state : present
-    - name : Start nginx
-      service : 
-      name : nginx
-      state : started
-
-    - name : Start nginx
-      service:
-        name : nginx
-        state : stopped
-
-
+    - name: Install apache httpd (state=present is optional)
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: "0644"
