@@ -4,6 +4,9 @@ apt install ansible
 # Creating the file  on another server
 ansible -i inventoryfile  all -m "shell" -a "touch filename"
 
+#create the file
+ansible -i inventory all -m file -a "path=path state=touch" 
+
 # Seeing the disk usage
 ansible -i inventory_file all -m "shell" -a "df"
 
