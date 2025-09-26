@@ -1,0 +1,11 @@
+FROM maven AS buildstage
+RUN mkdir /opt/mnr
+WORKDIR /opt/mnr
+COPY . .
+RUN mvn clean install
+
+FROM tomcat
+WORKDIR webapps
+COPY --from=buildstage /opt/mnr/target/*.war .
+RUN rm -rf ROOT && mv *.war ROOT.war
+EXPOSE 8080
