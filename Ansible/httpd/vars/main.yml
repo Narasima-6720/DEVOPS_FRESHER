@@ -1,0 +1,7 @@
+---
+# vars file for httpd
+#
+
+SERVICE_NAME: httpd
+SRC_LOC: index.j2
+DEST_PATH: /var/www/html/index.html

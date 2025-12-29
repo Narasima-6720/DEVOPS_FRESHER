@@ -1,0 +1,7 @@
+---
+# handlers file for httpd
+- name: changed_code
+  service:
+    name: "{{ SERVICE_NAME }}"
+    state: restarted
+

@@ -1,0 +1,20 @@
+---
+# tasks file for httpd
+- name: Install the httpd service
+  yum:
+    name: "{{ SERVICE_NAME }}"
+    state: present
+
+- name: Start httpd service
+  ansible.builtin.service:
+    name: "{{ SERVICE_NAME }}"
+    state: started
+  register: httpd_output
+
+- name: Copy the files to destination
+  ansible.builtin.template:
+    src: "{{ SRC_LOC }}"
+    dest: "{{ DEST_PATH }}"
+  tags: deploy_code
+  notify: changed_code
+
