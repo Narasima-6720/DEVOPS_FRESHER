@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-passing
+  labels:
+    app: Env 
+spec:
+  - name: environemnt-passing-values
+    image: nginx
+    env:
+      - name: ENVIRONMENT
+        value: "PRODUCTION"
+      - name: USERNAME
+        value: "admin"
+      - name: PASSWORD
+        value: "admin123"
+    ports:
+      - containerPort: 80
+    

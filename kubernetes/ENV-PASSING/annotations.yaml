@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations-pod
+  annotations:
+    imagerepository: "https://hub.docker.com/"
+    usage: "This pod is used to demonstrate annotations in Kubernetes."
+spec:
+  containers: 
+  - name: nginx-container
+    image: nginx:latest
+    ports:
+      - containerPort: 80

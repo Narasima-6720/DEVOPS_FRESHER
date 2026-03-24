@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: deploy 
+  lables:
+    app: fb-app
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      app: mydev-app
+  template:
+    metadata:
+      name: mycont
+      lables:
+        app: mydev-app
+    spec:
+      containers:
+        - name: nginx-cont
+          image: httpd:latest
+          containerPort:
+            - containerPort: 80

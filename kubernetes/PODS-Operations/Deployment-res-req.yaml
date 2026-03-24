@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep 
+  lables:
+    app: deply-res
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      app: dp-res-req
+  template:
+    metadata:
+      name: cont-res-req
+      lables:
+        app: dp-res-req
+    spec:
+      containers:
+        - name: httpd-pod
+          image: httpd:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
+            limits:
+              cpu: "1000m"
+              memory: "300Mi"

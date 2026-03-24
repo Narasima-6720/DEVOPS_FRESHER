@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myupd
+  labels:
+    app: dep-obj
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchlables:
+      app: prd-roll-upd
+  template:
+    metadata:
+      name: mypod
+      labels: 
+        app: prd-roll-upd
+    spec: 
+      containers:
+        - name: prod-cont
+          image: nignx:latest
+          ports:
+            - containerPort: 80
+          
