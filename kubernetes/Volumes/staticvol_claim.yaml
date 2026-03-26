@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: static-ebs
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  csi:
+    driver: ndjenf
+    fsType: ext4
+    volumeHandle: vol-23451
+
+
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: static-ebs-claim
+spec:
+  volumeName: static-ebs
+  storageClassName: " "
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-ebs
+  labels:
+    purpose: mypod
+spec:
+  containers:
+    - name: fbpod
+      image: nginx
+      volumeMounts:
+        - name: static-ebs
+          mountPath: /var/www/html
+  volumes:
+    - name: static-ebs
+      persistentVolumeClaim:
+        claimName: static-ebs
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pod-lb
+spec:
+  type: LoadBalancer
+  selector:
+      purpose: mypod
+  ports:
+    - port: 80
+      targetPort: 80
+
+
